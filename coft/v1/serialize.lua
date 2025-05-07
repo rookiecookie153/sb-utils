@@ -35,8 +35,8 @@ local clear = SERDES_DEBUG_ENABLED and function(...)
 end or emptyfunction
 
 -- local lib
-local TypeSerdes = import('coft/v1/typeserdes')
-local const = import('coft/v1/enum')
+local TypeSerdes = import('coft/v1/typeserdes.lua')
+local const = import('coft/v1/enum.lua')
 
 -- lib
 local lz4 = import('lz4.lua')
