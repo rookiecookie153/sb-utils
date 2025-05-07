@@ -62,7 +62,7 @@ local serdesModuleCache: {[string]: SerdesHandler} = {}
 local function getCachedSerdes(ver: string, name: string)
 	local serdes: SerdesHandler = serdesModuleCache[name..ver]
 	if not serdes then
-		serdes, e = import('v'..ver..'/'..name..'.lua')
+		serdes, e = import('coft/v'..ver..'/'..name..'.lua')
 		assert(serdes, e)
 		
 		--local versionFolder: Folder = SerdesModules:WaitForChild(ver, 1) :: Folder
