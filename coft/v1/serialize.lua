@@ -56,12 +56,8 @@ local const = import('coft/v1/enum.lua')
 -- lib
 local lz4 = import('lz4.lua')
 local properties = import('properties.lua')
-
 local lookup = import('lookup.lua')
-type lookup = lookup.lookup
-
 local stream = import('stream.lua')
-type stream = stream.stream
 
 -- idek anymore
 local function genericIdLookup(lookup: lookup, obj: any): number
