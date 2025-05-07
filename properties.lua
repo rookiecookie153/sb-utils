@@ -101,17 +101,12 @@ local Properties = {}
 --	return setmetatable({}, Properties)
 --end
 
-local gp = script:WaitForChild("GetProperties")
+-- local gp = script:WaitForChild("GetProperties")
 function Properties.GetProperties(instance: string | any)
-	if RunService:IsServer() or not RunService:IsRunning() then
-		if not IsAPILoaded then
-			APILoaded.Event:Wait()
-		end
-
-		return Classes[tostring(instance)]
+	if not IsAPILoaded then
+		APILoaded.Event:Wait()
 	end
-	
-	return gp:InvokeServer(tostring(instance))
+	return Classes[tostring(instance)]
 end
 
 function Properties.ReadEnumerator(enum: Enum)
