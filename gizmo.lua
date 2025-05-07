@@ -23,8 +23,8 @@ local RunService = game:GetService("RunService")
 local Event = RunService:IsServer() and RunService.Heartbeat or RunService.RenderStepped
 local Gizmos = Instance.new("Folder", workspace)
 
-local thickness = script:GetAttribute("DefaultThickness")
-local globalScale = script:GetAttribute("DefaultScale")
+local thickness = script:GetAttribute("DefaultThickness") or .025
+local globalScale = script:GetAttribute("DefaultScale") or 1
 local globalOrigin = CFrame.new(0, 0, 0)
 local onRender = nil
 local cache = {}
@@ -36,7 +36,7 @@ local properties = {
 	Adornee = workspace.Terrain,
 	AlwaysOnTop = true,
 	AdornCullingMode = Enum.AdornCullingMode.Automatic,
-	Color3 = script:GetAttribute("DefaultColor"),
+	Color3 = script:GetAttribute("DefaultColor") or Color3.new(1, 1, 1),
 	Visible = false,
 	ZIndex = 1,
 }
@@ -113,9 +113,9 @@ end
 function gizmo.reset()
 	properties.Transparency = 0
 	properties.ZIndex = 1
-	properties.Color3 = script:GetAttribute("DefaultColor")
-	thickness = script:GetAttribute("DefaultThickness")
-	globalScale = script:GetAttribute("DefaultScale")
+	properties.Color3 = script:GetAttribute("DefaultColor") or Color3.new(1,1,1)
+	thickness = script:GetAttribute("DefaultThickness") or .025
+	globalScale = script:GetAttribute("DefaultScale") or 1
 	globalOrigin = CFrame.new(0, 0, 0)
 end
 
