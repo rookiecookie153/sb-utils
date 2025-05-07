@@ -62,7 +62,7 @@ local serdesModuleCache: {[string]: SerdesHandler} = {}
 local function getCachedSerdes(ver: string, name: string)
 	local serdes: SerdesHandler = serdesModuleCache[name..ver]
 	if not serdes then
-		serdes, e = import('coft/v'..ver..'/'..name..'.lua')
+		serdes, e = import('coft/'..ver..'/'..name..'.lua')
 		assert(serdes, e)
 		
 		--local versionFolder: Folder = SerdesModules:WaitForChild(ver, 1) :: Folder
@@ -81,7 +81,7 @@ local function getCachedSerdes(ver: string, name: string)
 		--assert(type(serdes)=='table', `serdes {serializerModule:GetFullName()} did not return a function dictionary with serialize`)
 		--assert(serdes.serialize, `serdes {serializerModule:GetFullName()} has no serialize function`)
 
-		--serdesModuleCache[name..ver] = serdes
+		serdesModuleCache[name..ver] = serdes
 	end
 	return serdes
 end
