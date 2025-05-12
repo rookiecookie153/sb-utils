@@ -198,8 +198,6 @@ return function(serializable: Instance): string
 
 				table.insert(propertyDatas, propertygraph:export())
 			end
-
-			warn(`serialized group of instances ({#serializeGroup})`)
 			
 			debugw()
 		end
